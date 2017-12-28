@@ -2,21 +2,35 @@ package beans;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
 
-@ManagedBean
-@SessionScoped
+import constants.Sites;
+import pojos.OrderData;
+
+@ManagedBean(name="homeBean")
+@ViewScoped
 public class HomeBean {
-	private static final String SITETITLE = "Pizza Bestellservice";
 	
-	@ManagedProperty(value=SITETITLE)
-	private String seitenTitel;
-
-	public String getSeitenTitel() {
-		return seitenTitel;
+	@ManagedProperty(value="#{applicationBean}")
+	private ApplicationBean appBean;
+	
+	
+	public ApplicationBean getAppBean() {
+		return appBean;
 	}
 
-	public void setSeitenTitel(String seitenTitel) {
-		this.seitenTitel = seitenTitel;
+
+	public void setAppBean(ApplicationBean appBean) {
+		this.appBean = appBean;
 	}
+
+
+	public void startOrder(){
+		System.out.println("startOrder");
+		if(appBean.getOrderData()==null){
+			appBean.setOrderData(new OrderData());
+		}
+		appBean.setSite(Sites.ORDERPIZZA);
+	}
+	
 }

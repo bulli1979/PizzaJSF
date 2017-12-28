@@ -7,7 +7,9 @@ import javax.faces.bean.SessionScoped;
 @ManagedBean
 @SessionScoped
 public class HomeBean {
-	@ManagedProperty(value="Das ist eine coole seite")
+	private int site=2;
+	
+	@ManagedProperty(value="Pizza Bestellservice")
 	private String seitenTitel;
 
 	public String getSeitenTitel() {
@@ -17,4 +19,8 @@ public class HomeBean {
 	public void setSeitenTitel(String seitenTitel) {
 		this.seitenTitel = seitenTitel;
 	}
+	
+	
+	
+	
 }

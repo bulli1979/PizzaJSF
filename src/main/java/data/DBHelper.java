@@ -4,18 +4,19 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import javax.faces.context.FacesContext;
+
 public class DBHelper {
 	private static DBHelper instance;
-	private final static String DBPATH = "jdbc:sqlite:resources/pizza.db";
 	
 	private DBHelper(){}
 	
 	public Connection connect() throws ClassNotFoundException {
-	       
         Connection conn = null;
+        String path = "jdbc:sqlite:"+FacesContext.getCurrentInstance().getExternalContext().getRealPath("/")+"resources\\db\\pizza.db";
         try {
         	Class.forName("org.sqlite.JDBC");
-        	conn = DriverManager.getConnection(DBPATH);
+        	conn = DriverManager.getConnection(path);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
