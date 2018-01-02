@@ -9,7 +9,7 @@ public class Pizza{
 	private String description;
 	private List<Extra> extras;
 	private int id;
-	
+	private int selectAmount=0;
 	public Pizza(){
 		extras = new ArrayList<Extra>();
 	}
@@ -44,6 +44,15 @@ public class Pizza{
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	public int getSelectAmount() {
+		return selectAmount;
+	}
+
+	public void setSelectAmount(int selectAmount) {
+		this.selectAmount = selectAmount;
+	}
+
 	public Pizza clonePizza(){
         Pizza pizza = new Pizza();
         pizza.setDescription(this.description);

@@ -17,8 +17,17 @@ body {
 .navigationBox {
 	float: left;
 	width: 150px;
+	text-align:center;
+	padding:10px;
+	border:1px #333333 solid;
+	font-weight:bold;
 }
-
+.act{
+	background-color:#b8ff82;
+}
+.disabled{
+  color:#999999;
+}
 .content {
 	
 }
@@ -31,10 +40,12 @@ body {
 	border-spacing: 0;
 	border-collapse: collapse;
 	width:100%;
+	display: block;
 }
 
 .appTable th {
 	font-size: 18px;
+	padding:10px;
 }
 
 .appTable thead {
@@ -56,4 +67,41 @@ body {
 }
 .appTable tfoot{
 	font-weight:bold;
+}
+.dialog{
+	width:100%;
+	height:100%;
+	position:fixed;
+	background-color:rgba(255,255,255,0.6);
+	display:none;
+	top:0;
+  left:0;
+}
+.dialogWindow{
+	width:300px;
+	height:200px;
+	background-color:#ffffff;
+	border:2px #333333 solid;
+	border-radius:5px;
+	margin:100px auto;
+	padding:10px;
+}
+.input{
+	margin-bottom:5px;
+	padding:5px;
+	border:1px #999 solid;
+	background-color:#eeeeee;
+	border-radius:3px;
+	width:80%;
+}
+.userInfo{
+	float:right;
+}
+.button{
+	background-color:#b8ff82;
+	padding:10px;
+	margin-right:10px;
+	border:1px #333 solid;
+	border-radius:3px;
+	font-weidht:bold;
 }

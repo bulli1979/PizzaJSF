@@ -11,8 +11,8 @@
     <div>Egal welche Art von Pizza sie möchten bei uns bekommen sie alles.</div>
     <div>
       <h:form>
-	    <h:commandButton styleClass="button"  onclick="#{homeBean.startOrder()}" value="bestellen">
-	     <c:ajax render=":contentAll"></c:ajax>
+	    <h:commandButton id="bestellButton" styleClass="button"  action="#{homeBean.startOrder()}" value="bestellen">
+	     <c:ajax id="bestellAjax" render=":contentAll"></c:ajax>
 	    </h:commandButton>
 	    </h:form>
 	  </div>

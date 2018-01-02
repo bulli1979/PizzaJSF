@@ -26,7 +26,6 @@ public class HomeBean {
 
 
 	public void startOrder(){
-		System.out.println("startOrder");
 		if(appBean.getOrderData()==null){
 			appBean.setOrderData(new OrderData());
 		}
