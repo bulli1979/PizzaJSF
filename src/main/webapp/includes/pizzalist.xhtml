@@ -4,38 +4,44 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head></h:head>
 <body>
-  <h:form id="listform">
-	<table class="appTable">
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Beschreibung</th>
-				<th>Preis</th>
-				<th>Aktion</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="pizza" items="#{orderPizzaBean.pizzaList}" varStatus="loop">
+	<h:form id="listform">
+		<table class="appTable">
+			<thead>
 				<tr>
-					<td>#{pizza.name}</td>
-					<td>#{pizza.description}</td>
-					<td>#{orderPizzaBean.format(pizza.price)} CHF</td>
-					<td>
-					   <h:inputText id="amount_#{pizza.id}" styleClass="amountInput" value="#{pizza.selectAmount}">
-					      <f:ajax listener="#{orderPizzaBean.changePizza(loop.index)}" render="gesamtPreisPizzaList" />
-					   </h:inputText>
-					</td>
+					<th>Name</th>
+					<th>Beschreibung</th>
+					<th>Preis</th>
+					<th></th>
 				</tr>
-			</c:forEach>
-		</tbody>
-		<tfoot>
-		  <tr>
-		    <td colspan="2">Gesamtpreis:</td>
-		    <td><h:panelGroup id="gesamtPreisPizzaList">#{applicationBean.calculatePrice()}</h:panelGroup> CHF</td>
-		    <td> </td>
-		  </tr>
-		</tfoot>
+			</thead>
+			<tbody>
+				<c:forEach var="pizza" items="#{orderPizzaBean.pizzaList}"
+					varStatus="loop">
+					<tr>
+						<td>#{pizza.name}</td>
+						<td>#{pizza.description}</td>
+						<td>#{orderPizzaBean.format(pizza.price)} CHF</td>
+						<td><h:inputText id="amount_#{pizza.id}"
+								styleClass="amountInput" value="#{pizza.selectAmount}">
+								<f:ajax listener="#{orderPizzaBean.changePizza(loop.index)}"
+									render="gesamtPreisPizzaList" />
+							</h:inputText> 
+							<h:graphicImage value="resources/images/arrowDown.png" class="icon" alt="weniger"></h:graphicImage>
+              <h:graphicImage value="resources/images/arrowUp.png" class="icon" alt="mehr"></h:graphicImage>
+						</td>
+
+					</tr>
+				</c:forEach>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="2">Gesamtpreis:</td>
+					<td><h:panelGroup id="gesamtPreisPizzaList">#{applicationBean.calculatePrice()}</h:panelGroup>
+						CHF</td>
+					<td></td>
+				</tr>
+			</tfoot>
 		</table>
-		</h:form>
+	</h:form>
 </body>
 </html>

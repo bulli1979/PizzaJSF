@@ -62,6 +62,9 @@ body {
 .appTable tbody td:NTH-CHILD(3),.appTable tfoot td {
   text-align:right;
 }
+.appTable tbody td:NTH-CHILD(3),.appTable tfoot td {
+  padding:5px;
+}
 .appTable tbody tr:NTH-CHILD(odd) {
   background-color:#fffeee;
 }
@@ -104,4 +107,13 @@ body {
 	border:1px #333 solid;
 	border-radius:3px;
 	font-weidht:bold;
+}
+.amountInput{
+	width:20px;
+}
+
+.icon {
+    height: 30px;
+    margin-left: 2px;
+    cursor:pointer;
 }
