@@ -7,14 +7,7 @@
 <h:head>
 </h:head>
 <body>
-    <h2>Willkommen bei unserem Pizzabestellservice</h2>
-    <div>Egal welche Art von Pizza sie möchten bei uns bekommen sie alles.</div>
-    <div>
-      <h:form>
-	    <h:commandButton id="bestellButton" styleClass="button"  action="#{homeBean.startOrder()}" value="bestellen">
-	     <c:ajax id="bestellAjax" render=":contentAll"></c:ajax>
-	    </h:commandButton>
-	    </h:form>
-	  </div>
+	
+    <h:inputText value="#{personalDataBean.appBean.orderData.firstname}"></h:inputText>
 </body>
 </html>
