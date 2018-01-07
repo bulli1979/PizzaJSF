@@ -1,13 +1,60 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:c="http://java.sun.com/jsf/core"
-  xmlns:ui="http://java.sun.com/jsf/facelets"
-  xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 <h:head>
 </h:head>
 <body>
-	
-    <h:inputText value="#{personalDataBean.appBean.orderData.firstname}"></h:inputText>
+	<h:panelGrid id="panel" columns="2" border="0" cellpadding="10"
+		cellspacing="1">
+		<h:panelGrid id="panel" columns="2" border="0" cellpadding="10"
+			cellspacing="1">
+			<f:facet name="header">
+				<h:outputText value="Personal Data" />
+			</f:facet>
+			<h:outputLabel value="First Name" />
+			<h:inputText value="#{personalDataBean.appBean.orderData.firstname}"></h:inputText>
+			<h:outputLabel value="Last Name" />
+			<h:inputText value="#{personalDataBean.appBean.orderData.name}"></h:inputText>
+			<h:outputLabel value="Street" />
+			<h:inputText value="#{personalDataBean.appBean.orderData.street}"></h:inputText>
+			<h:outputLabel value="Telephone" />
+			<h:inputText value="#{personalDataBean.appBean.orderData.telephone}"></h:inputText>
+			<h:outputLabel value="Zip Code" />
+			<h:inputText value="#{personalDataBean.appBean.orderData.zip}"></h:inputText>
+			<h:outputLabel value="City" />
+			<h:inputText value="#{personalDataBean.appBean.orderData.city}"></h:inputText>
+		</h:panelGrid>
+		<h:panelGrid id="panel" columns="1" border="0" cellpadding="10"
+			cellspacing="1" frame="box">
+			<h:panelGrid id="panel" columns="2" border="0" cellpadding="10"
+				cellspacing="1">
+				<f:facet name="header">
+					<h:outputText value="Payment Method" />
+				</f:facet>
+				<h:selectOneRadio>
+					<f:selectItem itemValue="" itemLabel="Barzahlung"  />
+				</h:selectOneRadio>
+
+			</h:panelGrid>
+			<h:panelGrid id="panel" columns="2" border="0" cellpadding="10"
+				cellspacing="1">
+				<f:facet name="header">
+					<h:outputText value="Lieferung" />
+				</f:facet>
+				<h:outputLabel value="Lieferzeit" />
+				<h:selectOneMenu>
+					<f:selectItem itemValue="45" itemLabel="40min" />
+					<f:selectItem itemValue="60" itemLabel="60min" />
+					<f:selectItem itemValue="90" itemLabel="90min" />
+					<f:selectItem itemValue="120" itemLabel="120min" />
+				</h:selectOneMenu>
+
+			</h:panelGrid>
+		</h:panelGrid>
+	</h:panelGrid>
 </body>
 </html>

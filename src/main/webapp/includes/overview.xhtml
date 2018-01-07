@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-  xmlns:c="http://java.sun.com/jsf/core"
-  xmlns:ui="http://java.sun.com/jsf/facelets"
-  xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:c="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jstl="http://java.sun.com/jsp/jstl/core">
 <h:head>
 </h:head>
 <body>
-    <h2>Willkommen bei unserem Pizzabestellservice</h2>
-    <div>Egal welche Art von Pizza sie möchten bei uns bekommen sie alles.</div>
-    <div>
-      <h:form>
-	    <h:commandButton id="bestellButton" styleClass="button"  action="#{homeBean.startOrder()}" value="bestellen">
-	     <c:ajax id="bestellAjax" render=":contentAll"></c:ajax>
-	    </h:commandButton>
-	    </h:form>
-	  </div>
+	<h1>Pizza</h1>
+	<jstl:forEach var="pizza"
+		items="#{orderPizzaBean.appBean.orderData.pizzas}">
+		<h:outputLabel value="#{pizza.name}"></h:outputLabel>
+		<jstl:forEach var="extra" items="#{pizza.extras}">
+			<h:outputLabel value="#{extra.name}"></h:outputLabel>
+		</jstl:forEach>
+	</jstl:forEach>
 </body>
 </html>

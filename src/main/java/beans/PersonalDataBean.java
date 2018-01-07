@@ -8,5 +8,14 @@ import javax.faces.bean.SessionScoped;
 @SessionScoped
 public class PersonalDataBean {
 	@ManagedProperty(value="#{applicationBean}")
-	private ApplicationBean appBean;	
+	private ApplicationBean appBean;
+
+	public ApplicationBean getAppBean() {
+		return appBean;
+	}
+
+	public void setAppBean(ApplicationBean appBean) {
+		this.appBean = appBean;
+	}	
+
 }
