@@ -17,5 +17,4 @@ public class PersonalDataBean {
 	public void setAppBean(ApplicationBean appBean) {
 		this.appBean = appBean;
 	}	
-
 }
