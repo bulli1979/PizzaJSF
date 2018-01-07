@@ -8,9 +8,9 @@
 <h:head>
 </h:head>
 <body>
-	<h:panelGrid id="panel" columns="2" border="0" cellpadding="10"
+	<h:panelGrid id="panel_main" columns="2" border="0" cellpadding="10"
 		cellspacing="1">
-		<h:panelGrid id="panel" columns="2" border="0" cellpadding="10"
+		<h:panelGrid id="panel_personaldata" columns="2" border="0" cellpadding="10"
 			cellspacing="1">
 			<f:facet name="header">
 				<h:outputText value="Personal Data" />
@@ -28,7 +28,7 @@
 			<h:outputLabel value="City" />
 			<h:inputText value="#{personalDataBean.appBean.orderData.city}"></h:inputText>
 		</h:panelGrid>
-		<h:panelGrid id="panel" columns="1" border="0" cellpadding="10"
+		<h:panelGrid id="panel_paymentmethod" columns="1" border="0" cellpadding="10"
 			cellspacing="1" frame="box">
 			<h:panelGrid id="panel" columns="2" border="0" cellpadding="10"
 				cellspacing="1">
@@ -40,7 +40,7 @@
 				</h:selectOneRadio>
 
 			</h:panelGrid>
-			<h:panelGrid id="panel" columns="2" border="0" cellpadding="10"
+			<h:panelGrid id="panel_deliverymethod" columns="2" border="0" cellpadding="10"
 				cellspacing="1">
 				<f:facet name="header">
 					<h:outputText value="Lieferung" />
