@@ -21,13 +21,20 @@
 						<td>#{pizza.name}</td>
 						<td>#{pizza.description}</td>
 						<td>#{orderPizzaBean.format(pizza.price)} CHF</td>
-						<td><h:inputText id="amount_#{pizza.id}"
+						<td>
+						  <h:inputText id="amount_#{pizza.id}"
 								styleClass="amountInput" value="#{pizza.selectAmount}">
 								<f:ajax listener="#{orderPizzaBean.changePizza(loop.index)}"
 									render="gesamtPreisPizzaList" />
 							</h:inputText> 
-							<h:graphicImage value="resources/images/arrowDown.png" class="icon" alt="weniger"></h:graphicImage>
-              <h:graphicImage value="resources/images/arrowUp.png" class="icon" alt="mehr"></h:graphicImage>
+							<h:commandLink action="#{orderPizzaBean.minus(loop.index)}">
+								 <h:graphicImage value="resources/images/arrowDown.png" class="icon" alt="weniger"/>								 
+							   <f:ajax id="minus" render=":listform"/>
+							</h:commandLink>
+							<h:commandLink action="#{orderPizzaBean.plus(loop.index)}">
+                <h:graphicImage value="resources/images/arrowUp.png" class="icon" alt="mehr"/>
+                <f:ajax  id="plus" render=":listform"/>
+              </h:commandLink>
 						</td>
 
 					</tr>
@@ -40,6 +47,15 @@
 						CHF</td>
 					<td></td>
 				</tr>
+				<tr>
+          <td colspan="2"></td>
+          <td>
+            <h:commandButton id="bestellButton" styleClass="button"  action="#{orderPizzaBean.nextStep()}" value="weiter">
+			       <f:ajax id="bestellAjax" render=":contentAll"/>
+			      </h:commandButton>
+          </td>
+          <td></td>
+        </tr>
 			</tfoot>
 		</table>
 	</h:form>

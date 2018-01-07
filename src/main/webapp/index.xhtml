@@ -15,7 +15,7 @@
 	<h:panelGroup id="contentAll" styleClass="main" layout="block">
 		<h:panelGroup id="loginInfo" class="userInfo">
 		  <h:panelGroup rendered="#{applicationBean.currentUser == null}">
-		    <span onclick="app.openLogInDialog()">login</span>
+		    <span class="login" onclick="app.openLogInDialog()">login</span>
 		  </h:panelGroup>
 		  <h:panelGroup rendered="#{applicationBean.currentUser != null}">
         #{applicationBean.currentUser.firstName} #{applicationBean.currentUser.name} 
@@ -41,7 +41,9 @@
 			<h:panelGroup rendered="#{applicationBean.site.getSite() == 2}">
 				<ui:include id="pizzaListInclude" src="includes/pizzalist.xhtml"></ui:include>
 			</h:panelGroup>
-			
+      <h:panelGroup rendered="#{applicationBean.site.getSite() == 3}">
+        <ui:include id="pizzaListInclude" src="includes/pizzaOrderList.xhtml"></ui:include>
+      </h:panelGroup>
 			<h:panelGroup rendered="#{applicationBean.site.getSite() == 4}">
 				<ui:include id="personalDataInclude" src="includes/personaldata.xhtml"></ui:include>
 			</h:panelGroup>

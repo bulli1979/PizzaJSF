@@ -7,12 +7,13 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
+import constants.Sites;
 import data.DAOStaticData;
 import pojos.Pizza;
 
 @ManagedBean
 @SessionScoped
-public class OrderPizzaBean  extends AbstractBeanFunctions{
+public class OrderPizzaBean extends AbstractBeanFunctions{
 	private List<Pizza> pizzaList;
 	@ManagedProperty(value="#{applicationBean}")
 	private ApplicationBean appBean;	
@@ -34,7 +35,6 @@ public class OrderPizzaBean  extends AbstractBeanFunctions{
 	}
 
 	public OrderPizzaBean(){
-		
 		if(pizzaList == null){
 			try{
 				pizzaList = DAOStaticData.getAll();
@@ -48,7 +48,6 @@ public class OrderPizzaBean  extends AbstractBeanFunctions{
 	
 	
 	public void changePizza(int index){
-		System.out.println("do it " + index);
 		Pizza pizza = pizzaList.get(index);
 		int count = getAmount(pizza);
 		while(count>0){
@@ -63,7 +62,7 @@ public class OrderPizzaBean  extends AbstractBeanFunctions{
 		while(it.hasNext()){
 			Pizza userPizza = it.next();
 			if(userPizza.getId() == pizza.getId()){
-				if(count==pizza.getSelectAmount()){
+				if(count == pizza.getSelectAmount()){
 					it.remove();
 				}else{
 					count++;
@@ -71,5 +70,31 @@ public class OrderPizzaBean  extends AbstractBeanFunctions{
 			}
 		}
 		return pizza.getSelectAmount()-count;
+	}
+	
+	public void plus(int index){
+		Pizza pizza = pizzaList.get(index);
+		pizza.setSelectAmount(pizza.getSelectAmount()+1);
+		appBean.getOrderData().getPizzas().add(pizza.clonePizza());
+		System.out.println(appBean.getOrderData().getPizzas().size());
+	}
+	
+	public void minus(int index){
+		Pizza pizza = pizzaList.get(index);
+		if(pizza.getSelectAmount()>0){
+			Iterator<Pizza> it = appBean.getOrderData().getPizzas().iterator();
+			pizza.setSelectAmount(pizza.getSelectAmount()-1);
+			while(it.hasNext()){
+				Pizza userPizza = it.next();
+				if(userPizza.getId() == pizza.getId()){
+					it.remove();
+					break;
+				}
+			}
+		}
+	}
+	
+	public void nextStep(){
+		appBean.setSite(Sites.OVERVIEWEXTRAS);
 	}
 }
