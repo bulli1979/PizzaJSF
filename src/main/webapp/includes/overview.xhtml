@@ -19,23 +19,29 @@
 	</jstl:forEach>
 
 	<h1>Bestellangaben</h1>
-	<h:outputLabel value="First Name" />
-	<h:outputLabel value="#{personalDataBean.appBean.orderData.firstname}"></h:outputLabel>
-	<h:outputLabel value="Last Name" />
+	<h:outputLabel value="Vorname" />
+	<h:outputLabel value="#{personalDataBean.appBean.orderData.firstName}"></h:outputLabel>
+ 	<h:outputLabel value="&lt;br /&gt;" escape="false" />
+	<h:outputLabel value="Name" />
 	<h:outputLabel value="#{personalDataBean.appBean.orderData.name}"></h:outputLabel>
-	<h:outputLabel value="Street" />
+ 	<h:outputLabel value="&lt;br /&gt;" escape="false" />
+	<h:outputLabel value="Strasse" />
 	<h:outputLabel value="#{personalDataBean.appBean.orderData.street}"></h:outputLabel>
-	<h:outputLabel value="Telephone" />
+ 	<h:outputLabel value="&lt;br /&gt;" escape="false" />
+	<h:outputLabel value="Telefon" />
 	<h:outputLabel value="#{personalDataBean.appBean.orderData.telephone}"></h:outputLabel>
-	<h:outputLabel value="Zip Code" />
+ 	<h:outputLabel value="&lt;br /&gt;" escape="false" />
+	<h:outputLabel value="PLZ" />
 	<h:outputLabel value="#{personalDataBean.appBean.orderData.zip}"></h:outputLabel>
-	<h:outputLabel value="City" />
+ 	<h:outputLabel value="&lt;br /&gt;" escape="false" />
+	<h:outputLabel value="Ort" />
 	<h:outputLabel value="#{personalDataBean.appBean.orderData.city}"></h:outputLabel>
 
 	<h1>Total</h1>
-	<h:outputLabel value="#{personalDataBean.appBean.orderData.price}"></h:outputLabel>
+	<h:outputLabel value="#{applicationBean.calculatePrice()}"></h:outputLabel>
 
 	<h1>Lieferung</h1>
-	<h:outputLabel value="#{personalDataBean.appBean.orderData.deliveryTimeFromNow}"></h:outputLabel>
+	<h:outputLabel
+		value="Ihre voraussichtliche Lieferzeit: #{personalDataBean.appBean.orderData.deliveryTimeFromNow}"></h:outputLabel>
 </body>
 </html>
