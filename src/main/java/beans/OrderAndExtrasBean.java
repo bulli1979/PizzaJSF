@@ -13,7 +13,7 @@ import pojos.Pizza;
 @ManagedBean
 @SessionScoped
 public class OrderAndExtrasBean extends AbstractBeanFunctions {
-	private List<Extra> pizzaList;
+	private List<Extra> extraList;
 	
 	@ManagedProperty(value="#{applicationBean}")
 	private ApplicationBean appBean;
@@ -28,6 +28,14 @@ public class OrderAndExtrasBean extends AbstractBeanFunctions {
 	
 	public void nextStep(){
 		appBean.setSite(Sites.PERSONALDATA);
+	}
+
+	public List<Extra> getExtraList() {
+		return extraList;
+	}
+
+	public void setExtraList(List<Extra> extraList) {
+		this.extraList = extraList;
 	}
 	
 }

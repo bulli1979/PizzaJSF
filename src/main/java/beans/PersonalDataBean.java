@@ -14,7 +14,7 @@ public class PersonalDataBean {
 		return appBean;
 	}
 
-	public string getFirstName()
+	public String getFirstName()
 	{
 		return appBean.getOrderData().getFirstName();
 	}

@@ -22,6 +22,10 @@ public class ApplicationBean extends AbstractBeanFunctions{
 		return true;
 	}
 
+	private void toHome(){
+		setSite(Sites.HOME);
+	}
+	
 	public String chkAct(int navSite){
 		if(navSite==site.getSite()){
 			return " act";
