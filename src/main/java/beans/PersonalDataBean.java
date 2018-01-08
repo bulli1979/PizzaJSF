@@ -4,8 +4,6 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
-import constants.Sites;
-
 @ManagedBean
 @SessionScoped
 public class PersonalDataBean {
@@ -16,11 +14,22 @@ public class PersonalDataBean {
 		return appBean;
 	}
 
+	public string getFirstName()
+	{
+		return appBean.getOrderData().getFirstName();
+	}
+
+	public void nextStep(){
+		//appBean.setSite(Sites.OVERVIEW);
+		System.out.println(appBean.getOrderData().getFirstName());
+	}
+
 	public void setAppBean(ApplicationBean appBean) {
 		this.appBean = appBean;
 	}	
-	
-	public void nextStep(){
-		appBean.setSite(Sites.OVERVIEW);
+
+	public void setFirstName(String firstName)
+	{
+		appBean.getOrderData().setFirstName(firstName);
 	}
 }

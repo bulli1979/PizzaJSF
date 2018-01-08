@@ -13,27 +13,30 @@
 	<jstl:forEach var="pizza"
 		items="#{orderPizzaBean.appBean.orderData.pizzas}">
 		<h:outputLabel value="🍕  PIZZA #{pizza.name}"></h:outputLabel>
+		<h:outputLabel value="&lt;br /&gt;" escape="false" />
 		<jstl:forEach var="extra" items="#{pizza.extras}">
 			<h:outputLabel value="• #{extra.name}"></h:outputLabel>
+			<h:outputLabel value="&lt;br /&gt;" escape="false" />
 		</jstl:forEach>
+		<h:outputLabel value="&lt;br /&gt;" escape="false" />
 	</jstl:forEach>
 
 	<h1>Bestellangaben</h1>
 	<h:outputLabel value="Vorname" />
 	<h:outputLabel value="#{personalDataBean.appBean.orderData.firstName}"></h:outputLabel>
- 	<h:outputLabel value="&lt;br /&gt;" escape="false" />
+	<h:outputLabel value="&lt;br /&gt;" escape="false" />
 	<h:outputLabel value="Name" />
 	<h:outputLabel value="#{personalDataBean.appBean.orderData.name}"></h:outputLabel>
- 	<h:outputLabel value="&lt;br /&gt;" escape="false" />
+	<h:outputLabel value="&lt;br /&gt;" escape="false" />
 	<h:outputLabel value="Strasse" />
 	<h:outputLabel value="#{personalDataBean.appBean.orderData.street}"></h:outputLabel>
- 	<h:outputLabel value="&lt;br /&gt;" escape="false" />
+	<h:outputLabel value="&lt;br /&gt;" escape="false" />
 	<h:outputLabel value="Telefon" />
 	<h:outputLabel value="#{personalDataBean.appBean.orderData.telephone}"></h:outputLabel>
- 	<h:outputLabel value="&lt;br /&gt;" escape="false" />
+	<h:outputLabel value="&lt;br /&gt;" escape="false" />
 	<h:outputLabel value="PLZ" />
 	<h:outputLabel value="#{personalDataBean.appBean.orderData.zip}"></h:outputLabel>
- 	<h:outputLabel value="&lt;br /&gt;" escape="false" />
+	<h:outputLabel value="&lt;br /&gt;" escape="false" />
 	<h:outputLabel value="Ort" />
 	<h:outputLabel value="#{personalDataBean.appBean.orderData.city}"></h:outputLabel>
 
