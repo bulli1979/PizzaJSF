@@ -2,11 +2,15 @@ package beans;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.SessionScoped;
+import javax.faces.bean.RequestScoped;
+import javax.faces.component.html.HtmlInputText;
+
+import constants.Sites;
 
 @ManagedBean
-@SessionScoped
+@RequestScoped
 public class PersonalDataBean {
+	private HtmlInputText firstName;
 	@ManagedProperty(value="#{applicationBean}")
 	private ApplicationBean appBean;
 
@@ -14,22 +18,29 @@ public class PersonalDataBean {
 		return appBean;
 	}
 
-	public String getFirstName()
-	{
-		return appBean.getOrderData().getFirstName();
-	}
+	
 
 	public void nextStep(){
-		//appBean.setSite(Sites.OVERVIEW);
+		appBean.setSite(Sites.OVERVIEW);
+		System.out.println(this.firstName.getValue());
 		System.out.println(appBean.getOrderData().getFirstName());
 	}
 
 	public void setAppBean(ApplicationBean appBean) {
 		this.appBean = appBean;
+	}
+
+
+
+	public HtmlInputText getFirstName() {
+		return firstName;
+	}
+
+
+
+	public void setFirstName(HtmlInputText firstName) {
+		this.firstName = firstName;
 	}	
 
-	public void setFirstName(String firstName)
-	{
-		appBean.getOrderData().setFirstName(firstName);
-	}
+
 }
