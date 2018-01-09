@@ -4,7 +4,7 @@
 	xmlns:f="http://java.sun.com/jsf/core">
 <h:head></h:head>
 <body>
-	<h:form id="listform">
+	<h:form id="listform" enctype="multipart/form-data">
 		<table class="appTable">
 			<thead>
 				<tr>
@@ -29,14 +29,13 @@
 							</h:inputText> 
 							<h:commandLink action="#{orderPizzaBean.minus(loop.index)}">
 								 <h:graphicImage value="resources/images/arrowDown.png" class="icon" alt="weniger"/>								 
-							   <f:ajax id="minus" render=":listform"/>
+							   <f:ajax id="minus" render=":contentAll"/>
 							</h:commandLink>
 							<h:commandLink action="#{orderPizzaBean.plus(loop.index)}">
                 <h:graphicImage value="resources/images/arrowUp.png" class="icon" alt="mehr"/>
-                <f:ajax  id="plus" render=":listform"/>
+                <f:ajax  id="plus" render=":contentAll"/>
               </h:commandLink>
 						</td>
-
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -50,8 +49,8 @@
 				<tr>
           <td colspan="2"></td>
           <td>
-            <h:commandButton id="bestellButton" styleClass="button"  action="#{orderPizzaBean.nextStep()}" value="weiter">
-			       <f:ajax id="bestellAjax" render=":contentAll"/>
+            <h:commandButton id="bestellButton" styleClass="button" actionListener="#{orderPizzaBean.nextStep()}" value="weiter">
+			       <f:ajax render=":contentAll" />
 			      </h:commandButton>
           </td>
           <td></td>
