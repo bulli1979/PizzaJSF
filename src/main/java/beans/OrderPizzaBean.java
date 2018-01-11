@@ -18,6 +18,17 @@ public class OrderPizzaBean extends AbstractBeanFunctions{
 	@ManagedProperty(value="#{applicationBean}")
 	private ApplicationBean appBean;	
 	
+	public OrderPizzaBean(){
+		if(pizzaList == null){
+			try{
+				pizzaList = DAOStaticData.getAll();
+			}catch(Exception e){
+				System.out.println("Error in getPizzas DB!");
+				e.printStackTrace();
+			}
+		}
+	}
+	
 	public List<Pizza> getPizzaList() {
 		return pizzaList;
 	}
@@ -34,19 +45,6 @@ public class OrderPizzaBean extends AbstractBeanFunctions{
 		this.appBean = appBean;
 	}
 
-	public OrderPizzaBean(){
-		if(pizzaList == null){
-			try{
-				pizzaList = DAOStaticData.getAll();
-			}catch(Exception e){
-				System.out.println("Error in getPizzas DB!");
-				e.printStackTrace();
-			}
-		}
-	}
-
-	
-	
 	public void changePizza(int index){
 		Pizza pizza = pizzaList.get(index);
 		int count = getAmount(pizza);
@@ -76,7 +74,6 @@ public class OrderPizzaBean extends AbstractBeanFunctions{
 		Pizza pizza = pizzaList.get(index);
 		pizza.setSelectAmount(pizza.getSelectAmount()+1);
 		appBean.getOrderData().getPizzas().add(pizza.clonePizza());
-		System.out.println(appBean.getOrderData().getPizzas().size());
 	}
 	
 	public void minus(int index){
