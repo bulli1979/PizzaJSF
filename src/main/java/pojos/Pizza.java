@@ -8,6 +8,7 @@ public class Pizza{
 	private String name;
 	private String description;
 	private List<Extra> extras;
+	private Extra selectedExtra;
 	private int id;
 	private int selectAmount=0;
 	public Pizza(){
@@ -51,6 +52,14 @@ public class Pizza{
 
 	public void setSelectAmount(int selectAmount) {
 		this.selectAmount = selectAmount;
+	}
+	
+	public Extra getSelectedExtra() {
+		return selectedExtra;
+	}
+
+	public void setSelectedExtra(Extra selectedExtra) {
+		this.selectedExtra = selectedExtra;
 	}
 
 	public Pizza clonePizza(){

@@ -22,7 +22,7 @@ public class ApplicationBean extends AbstractBeanFunctions{
 		return true;
 	}
 
-	private void toHome(){
+	public void toHome(){
 		setSite(Sites.HOME);
 	}
 	
@@ -49,8 +49,6 @@ public class ApplicationBean extends AbstractBeanFunctions{
 		}
 		return format(price);
 	}
-	
-	
 	
 	public String getSiteTitle() {
 		return siteTitle;

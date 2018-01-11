@@ -11,19 +11,37 @@
 					<th>Name</th>
 					<th>Beschreibung</th>
 					<th>Preis</th>
-					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="pizza" items="#{applicationBean.getOrderData().getPizzas()}"
 					varStatus="loop">
 					<tr>
-						<td>#{pizza.name}</td>
-						<td>#{pizza.description}</td>
-						<td>#{orderPizzaBean.format(pizza.price)} CHF</td>
-						<td>
-						 
+						<td>#{pizza.name}
 						</td>
+						<td>
+						  <div>#{pizza.description}</div>
+						  <div>
+						    <c:forEach varStatus="loop2" var="extra" items="#{pizza.extras}">
+						      <div>#{extra.name} 
+						        <h:commandButton id="del#{loop2.index}" actionListener="#{orderAndExtrasBean.delExtraDelListener}" value="remove">
+		                  <f:attribute name="pizza" value="#{pizza}"></f:attribute>
+		                  <f:attribute name="extra" value="#{extra}"></f:attribute>
+		                </h:commandButton>
+						      </div>
+						    </c:forEach>
+						  </div>
+						  <div>
+						    <h:selectOneMenu id="select#{loop.index}" value="#{pizza.selectedExtra}" converter="extraConverter">
+                  <f:selectItems value="#{orderAndExtrasBean.extraList}" var="extra" itemValue="#{extra}" itemLabel="#{extra.name} #{orderAndExtrasBean.format(extra.price)}" /> 
+                </h:selectOneMenu>
+                <h:commandButton id="button#{loop.index}" actionListener="#{orderAndExtrasBean.addExtraListener}" value="add">
+                <f:attribute name="pizza" value="#{pizza}"></f:attribute>
+                </h:commandButton>
+               </div>
+              
+						</td>
+						<td>#{orderPizzaBean.format(pizza.price)} CHF</td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -41,10 +59,12 @@
 			       <f:ajax id="personalDataAjax" render=":contentAll"/>
 			      </h:commandButton>
           </td>
-          <td></td>
         </tr>
 			</tfoot>
 		</table>
 	</h:form>
+	<h:inputHidden id="pizzaId"></h:inputHidden>
+	<h:commandButton style="display:none;" action="#{orderAndExtrasBean.addExtra}" value="add">
+  </h:commandButton>
 </body>
 </html>
