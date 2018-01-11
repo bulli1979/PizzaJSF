@@ -17,22 +17,35 @@
 				</f:facet>
 				<h:outputLabel value="First Name" />
 				<h:inputText value="#{personalDataBean.appBean.orderData.firstName}"
-					binding="#{personalDataBean.firstName}"></h:inputText>
+					binding="#{personalDataBean.firstName}" required="true">
+					<f:validateLength for="fistName" minimum="1" maximum="50" />
+				</h:inputText>
 				<h:outputLabel value="Last Name" />
 				<h:inputText value="#{personalDataBean.appBean.orderData.name}"
-					binding="#{personalDataBean.name}"></h:inputText>
+					binding="#{personalDataBean.name}" required="true">
+					<f:validateLength for="name" minimum="1" maximum="50" />
+				</h:inputText>
 				<h:outputLabel value="Street" />
 				<h:inputText value="#{personalDataBean.appBean.orderData.street}"
-					binding="#{personalDataBean.street}"></h:inputText>
+					binding="#{personalDataBean.street}" required="true">
+					<f:validateLength for="street" minimum="1" maximum="50" />
+				</h:inputText>
 				<h:outputLabel value="Telephone" />
 				<h:inputText value="#{personalDataBean.appBean.orderData.telephone}"
-					binding="#{personalDataBean.telephone}"></h:inputText>
+					binding="#{personalDataBean.telephone}" required="true">
+					<f:validateLength for="telephone" minimum="1" maximum="50" />
+				</h:inputText>
 				<h:outputLabel value="Zip Code" />
 				<h:inputText value="#{personalDataBean.appBean.orderData.zip}"
-					binding="#{personalDataBean.zip}"></h:inputText>
+					binding="#{personalDataBean.zip}" required="true">
+					<f:validateLongRange minimum="1000" maximum="9999" />
+				</h:inputText>
 				<h:outputLabel value="City" />
 				<h:inputText value="#{personalDataBean.appBean.orderData.city}"
-					binding="#{personalDataBean.city}"></h:inputText>
+					binding="#{personalDataBean.city}" required="true">
+					<f:validateLength for="city" minimum="1" maximum="50" />
+				</h:inputText>
+
 			</h:panelGrid>
 			<h:panelGrid id="panel_paymentmethod" columns="1" border="0"
 				cellpadding="10" cellspacing="1" frame="box">
@@ -67,5 +80,6 @@
 			value="weiter">
 		</h:commandButton>
 	</h:form>
+	<h:messages style="color:red;margin:8px;" />
 </body>
 </html>
