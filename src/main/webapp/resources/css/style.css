@@ -107,6 +107,17 @@ body {
 	border-radius:3px;
 	font-weidht:bold;
 }
+.removeExtraButton{
+    padding: 5px 8px;
+    text-shadow: 1px 1px 1px #cccccc
+}
+.addExtraButton{
+    padding: 5px;
+    margin-left: 5px;
+}
+.addExtraBox{
+	margin-top:10px;
+}
 .amountInput{
 	width:20px;
 }
