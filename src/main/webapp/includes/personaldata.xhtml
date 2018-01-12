@@ -8,44 +8,62 @@
 <h:head></h:head>
 <body>
 	<h:form id="personalDataForm" enctype="multipart/form-data">
-		<h:panelGrid id="panel_main" columns="2" border="0" cellpadding="10"
-			cellspacing="1">
-			<h:panelGrid id="panel_personaldata" columns="2" border="0"
-				cellpadding="10" cellspacing="1">
+		<h:panelGrid id="panel_main" columns="2" border="0" cellpadding="5"
+			cellspacing="1" width="700">
+			<h:panelGrid id="panel_personaldata" columns="3" border="0"
+				cellpadding="8" cellspacing="1">
 				<f:facet name="header">
-					<h:outputText value="Personal Data" />
+					<h:outputText value="Persönliche Daten" />
 				</f:facet>
-				<h:outputLabel value="First Name" />
-				<h:inputText value="#{personalDataBean.appBean.orderData.firstName}"
-					binding="#{personalDataBean.firstName}" required="true">
+				<h:outputLabel value="Vorname" class="personaldata_title" />
+				<h:inputText id="firstName" validatorMessage="Pflichtfeld"
+					value="#{personalDataBean.appBean.orderData.firstName}"
+					binding="#{personalDataBean.firstName}" required="true"
+					requiredMessage="Pflichtfeld">
 					<f:validateLength for="fistName" minimum="1" maximum="50" />
 				</h:inputText>
-				<h:outputLabel value="Last Name" />
-				<h:inputText value="#{personalDataBean.appBean.orderData.name}"
-					binding="#{personalDataBean.name}" required="true">
+				<h:messages for="firstName" class="validationError" />
+				<h:outputLabel value="Name" class="personaldata_title" />
+				<h:inputText id="name"
+					value="#{personalDataBean.appBean.orderData.name}"
+					binding="#{personalDataBean.name}" required="true"
+					requiredMessage="Pflichtfeld">
 					<f:validateLength for="name" minimum="1" maximum="50" />
 				</h:inputText>
-				<h:outputLabel value="Street" />
-				<h:inputText value="#{personalDataBean.appBean.orderData.street}"
-					binding="#{personalDataBean.street}" required="true">
+				<h:messages for="name" class="validationError" />
+				<h:outputLabel value="Strasse" class="personaldata_title" />
+				<h:inputText id="street"
+					value="#{personalDataBean.appBean.orderData.street}"
+					binding="#{personalDataBean.street}" required="true"
+					requiredMessage="Pflichtfeld">
 					<f:validateLength for="street" minimum="1" maximum="50" />
 				</h:inputText>
-				<h:outputLabel value="Telephone" />
-				<h:inputText value="#{personalDataBean.appBean.orderData.telephone}"
-					binding="#{personalDataBean.telephone}" required="true">
+				<h:messages for="street" class="validationError" />
+				<h:outputLabel value="Telefon" class="personaldata_title" />
+				<h:inputText id="telephone"
+					value="#{personalDataBean.appBean.orderData.telephone}"
+					binding="#{personalDataBean.telephone}" required="true"
+					requiredMessage="Pflichtfeld">
 					<f:validateLength for="telephone" minimum="1" maximum="50" />
 				</h:inputText>
-				<h:outputLabel value="Zip Code" />
-				<h:inputText value="#{personalDataBean.appBean.orderData.zip}"
-					binding="#{personalDataBean.zip}" required="true">
+				<h:messages for="telephone" class="validationError" />
+				<h:outputLabel value="PLZ" class="personaldata_title" />
+				<h:inputText id="zip"
+					value="#{personalDataBean.appBean.orderData.zip}"
+					binding="#{personalDataBean.zip}" required="true"
+					requiredMessage="Pflichtfeld"
+					validatorMessage="Der Wert muss zwischen 1000 und 9999 liegen.">
 					<f:validateLongRange minimum="1000" maximum="9999" />
 				</h:inputText>
-				<h:outputLabel value="City" />
-				<h:inputText value="#{personalDataBean.appBean.orderData.city}"
-					binding="#{personalDataBean.city}" required="true">
+				<h:messages for="zip" class="validationError" />
+				<h:outputLabel value="City" class="personaldata_title" />
+				<h:inputText id="city"
+					value="#{personalDataBean.appBean.orderData.city}"
+					binding="#{personalDataBean.city}" required="true"
+					requiredMessage="Pflichtfeld">
 					<f:validateLength for="city" minimum="1" maximum="50" />
 				</h:inputText>
-
+				<h:messages for="city" class="validationError" />
 			</h:panelGrid>
 			<h:panelGrid id="panel_paymentmethod" columns="1" border="0"
 				cellpadding="10" cellspacing="1" frame="box">
@@ -80,6 +98,5 @@
 			value="weiter">
 		</h:commandButton>
 	</h:form>
-	<h:messages style="color:red;margin:8px;" />
 </body>
 </html>
