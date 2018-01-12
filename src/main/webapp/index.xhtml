@@ -24,16 +24,19 @@
       </h:panelGroup>
 		</h:panelGroup>
 		<h:commandLink action="#{applicationBean.toHome}">
-		  <f:ajax render=":contentAll"/><h1>Pizza Bestellservice Eberlein/Ruch</h1>
+		 <f:ajax render=":contentAll"/><h1>Pizza Bestellservice Eberlein/Ruch</h1>
 		</h:commandLink>
 		<h:panelGroup styleClass="navigation" layout="block"
 			rendered="#{applicationBean.showNav()}">
 			
 			<h:panelGroup styleClass="navigationBox#{applicationBean.chkAct(2)}"
-				layout="block">Pizza wählen</h:panelGroup>
+				layout="block">Pizza wählen
+			</h:panelGroup>
+				
 				
 			<h:panelGroup styleClass="navigationBox#{applicationBean.chkAct(3)}"
-				layout="block">Übersicht und Extras</h:panelGroup>
+				layout="block">Übersicht und Extras
+       </h:panelGroup>
 				
 			<h:panelGroup styleClass="navigationBox#{applicationBean.chkAct(4)}"
 				layout="block">Persönliche Daten</h:panelGroup>

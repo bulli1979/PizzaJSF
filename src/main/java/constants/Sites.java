@@ -10,4 +10,12 @@ public enum Sites {
 	public int getSite(){
 		return this.site;
 	}
+	public static Sites getSite(int siteIndex) {
+		for(Sites s : Sites.values()){
+			if(s.getSite()==siteIndex){
+				return s;
+			}
+		}
+		return null;
+	}
 }

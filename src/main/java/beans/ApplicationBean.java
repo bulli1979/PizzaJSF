@@ -36,6 +36,27 @@ public class ApplicationBean extends AbstractBeanFunctions{
 		return "";
 	}
 	
+	public void goToPizzaList(){
+		this.site=Sites.ORDERPIZZA;
+	}
+	
+	public void goToExtras(){
+		this.site=Sites.OVERVIEWEXTRAS;
+	}
+	
+	public boolean showListLink(){
+		if(this.site.getSite()>2&& this.site.getSite()<5){
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean showExtraListLink(){
+		if(this.site.getSite()==4){
+			return true;
+		}
+		return false;
+	}
 	
 	public String calculatePrice(){
 		double price = 0;
