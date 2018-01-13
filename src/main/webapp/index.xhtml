@@ -30,12 +30,15 @@
 			rendered="#{applicationBean.showNav()}">
 			
 			<h:panelGroup styleClass="navigationBox#{applicationBean.chkAct(2)}"
-				layout="block">Pizza wählen
+				layout="block">
+				<h:outputText rendered="#{!applicationBean.showListLink()}" value="Pizza wählen"></h:outputText>
+				<h:commandLink rendered="#{applicationBean.showListLink()}" actionListener="#{applicationBean.goToPizzaList}">Pizza wählen</h:commandLink>
 			</h:panelGroup>
 				
-				
 			<h:panelGroup styleClass="navigationBox#{applicationBean.chkAct(3)}"
-				layout="block">Übersicht und Extras
+				layout="block">
+				<h:outputText rendered="#{!applicationBean.showExtraListLink()}" value="Übersicht und Extras"></h:outputText>
+        <h:commandLink rendered="#{applicationBean.showExtraListLink()}" actionListener="#{applicationBean.goToExtras}">Übersicht und Extras</h:commandLink>
        </h:panelGroup>
 				
 			<h:panelGroup styleClass="navigationBox#{applicationBean.chkAct(4)}"
