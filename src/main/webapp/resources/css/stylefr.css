@@ -1,4 +1,4 @@
-.validationError {
+.validationError li {
 	color: red;
 		font-weight: bold;
 }
